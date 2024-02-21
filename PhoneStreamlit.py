@@ -23,7 +23,7 @@ df.info() # 查看表总体信息
 # 数据清洗
 df['number_purchaser'] = df['number_purchaser'].str.replace('+人收货', '')  # 去除多余字符
 df['number_purchaser'] = df['number_purchaser'].str.replace('万', '0000') 
-df['number_purchaser'] = df['number_purchaser'].astype('int')  # 转换为数字类型
+df['number_purchaser'] = df['number_purchaser'].apply(int)  # 转换为数字类型
 
 df['price_product'] = df['price_product'].str.replace('.00','')    # 去除多余字符      
 df['price_product'] = df['price_product'].str.replace('元', '')
@@ -98,4 +98,4 @@ fig_product_sales.update_traces(
 st.plotly_chart(fig_product_sales)  # 该代码仅用于plotly画图方法
 
 
-fig_product_sales.show() # 用于检验图表
+#fig_product_sales.show() # 用于检验图表
